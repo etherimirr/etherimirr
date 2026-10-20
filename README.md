@@ -13,7 +13,7 @@
 </p>
 
 <p>
-  <a href="https://www.linkedin.com/in/christina-yijing-jia-36992b383/">
+  <a href="https://www.linkedin.com/in/christina-jia-36992b383/">
     <img src="https://img.shields.io/badge/LinkedIn-christina--yijing--jia-0A66C2?style=flat-square&labelColor=0D1117&logo=linkedin&logoColor=white" alt="LinkedIn">
   </a>
   <a href="mailto:yj2923@columbia.edu">
@@ -31,7 +31,7 @@
 I work on the unglamorous half of systems: the execution layer underneath, the part that has to
 stay correct when things run concurrently and for a long time.
 
-Right now I'm a SWE intern on **TikTok Trust &amp; Safety — Algorithm Infra**, on the async execution
+This summer I was a SWE intern on **TikTok Trust &amp; Safety — Algorithm Infra**, on the async execution
 layer behind a safety-model evaluation platform. I re-architected a synchronous SSE path into
 MongoDB-backed durable tasks — a 15-minute ceiling became 3-hour jobs — and extended a **Go DAG
 engine** with async triggers, which is how I ended up tracking a production concurrency deadlock
@@ -48,8 +48,7 @@ across parallel SG/US runs.
 </td><td width="50%" valign="top">
 
 **Looking for**
-- 2027 New Grad SWE / Infra
-- Summer 2027 internships
+- 2027 New Grad SWE / ML / AI Infra (start Jan 2027)
 - US-based, open to relocation
 
 </td></tr>
