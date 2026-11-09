@@ -37,16 +37,17 @@ I work on the unglamorous half of systems: the execution layer underneath, the p
 stay correct when things run concurrently and for a long time. Lately that has meant LLM agents in
 production, and increasingly computer vision, which is where I want to go deeper.
 
-This past summer I was a SWE intern on **TikTok Trust &amp; Safety, Algorithm Infra**, on the async execution
-layer behind a safety-model evaluation platform. I re-architected a synchronous SSE path into
-MongoDB-backed durable tasks (a 15-minute ceiling became 3-hour jobs) and extended a **Go DAG
-engine** with async triggers, which is how I ended up tracking a production concurrency deadlock
-across parallel evaluation runs.
+This past summer I was a SWE intern on **TikTok Trust &amp; Safety, Algorithm Infra**. I designed and
+shipped the **Smart Analysis Agent** for the team's model evaluation platform end to end, on the company's
+LangGraph and MCP agent framework. It replaced a manual loop of downloading evaluation exports, writing
+up the analysis by hand, and uploading the report. In front is a React and TypeScript panel. Behind it,
+quick reads run synchronously and full-dataset analysis runs as a background job in an isolated sandbox,
+with per-conversation state in MongoDB so a run can be cancelled, resumed, or picked back up after a reload.
 
-Now I split my time between **DiyoWater** (part-time lead data engineering and ML intern: a Python/DuckDB
-ETL pipeline with LLM enrichment for 11,000+ venues at 95%+ precision, plus a FAISS two-tower
-recommender on AWS) and **research in Prof. Zhou Yu's lab at Columbia** on evaluating conversational
-LLM agents.
+After that I led data engineering and ML at **DiyoWater** as an intern (Aug to Sep 2026), building a
+Python/DuckDB ETL pipeline with LLM enrichment for 11,000+ venues at 95%+ precision and a FAISS two-tower
+recommender on AWS. My research is a **Walmart-sponsored project with Arklex in Prof. Zhou Yu's lab at
+Columbia** on evaluating conversational LLM agents.
 
 <table>
 <tr><td width="50%" valign="top">
@@ -67,20 +68,37 @@ LLM agents.
 
 ---
 
+### Publications
+
+**TaskMap: Task-Conditioned LLM Adaptation in a Shared Orthogonal Basis**<br>
+Second author. Accepted to **WSDM 2027 Findings**. [Code](https://github.com/liangwen12year/TaskMap)
+
+---
+
+### Research interests and reading
+
+- **Agent evaluation and user simulation.** How to tell whether a tool-calling agent is actually getting better.
+- **Parameter-efficient and multi-task adaptation.** Where interference between tasks comes from and how to contain it.
+- **World models.** What the state should be, and how to predict it without generating every pixel.
+- **On-device inference.** Decoding is a memory problem, so capacity and bandwidth decide what runs locally.
+- **Vision on the edge and in 3D.** Detection under a 5W budget, reconstruction, diffusion.
+
+---
+
 ### Selected work
 
 | | Project | The hard part | Stack |
 |---|---|---|---|
-| 🧗 | **[rcri-climbing-route-recognition](https://github.com/etherimirr/rcri-climbing-route-recognition)** | Real-time climbing route ID on a Jetson Nano. Three-stage YOLOv8 pipeline (mAP50 0.825 on holds), ONNX to TensorRT FP16, 12 FPS at 5W, plus an A* beta solver. | `PyTorch` `TensorRT` `Jetson` |
+| 📄 | **[TaskMap](https://github.com/liangwen12year/TaskMap)** | Task-conditioned LLM adaptation where each task is a set of coefficients in shared fixed orthogonal bases. Second author, WSDM 2027 Findings. | `PyTorch` `PEFT` `Qwen2.5` |
+| 🧗 | **[rcri-climbing-route-recognition](https://github.com/etherimirr/rcri-climbing-route-recognition)** | Real-time climbing route ID on a Jetson Nano, built with one teammate. Three-stage YOLOv8 pipeline (mAP50 0.825 on holds), ONNX to TensorRT FP16, 12 FPS for the detection stage and 5 FPS for the full pipeline at 5W, plus an A* beta solver. | `PyTorch` `TensorRT` `Jetson` |
 | ⚡ | **[mbook](https://github.com/etherimirr/mbook)** | Deterministic limit order book. O(1) dense tick ladder over a preallocated slab, nothing allocated on the hot path, replay verified by a digest over the ordered fill stream. | `C++17` `CMake` |
 | 🔒 | **Nightwatch** *(private)* | Multi-agent assistant on the Claude Code SDK. Five-layer memory (procedural, working, episodic, semantic, persona), and a read-only digital twin with three-layer prompt-injection defense. | `Python` `SQLite/FTS5` `ChromaDB` |
 | 🧭 | **[cs-interview-coach](https://github.com/etherimirr/cs-interview-coach)** | Local-first, sub-millisecond FST search over 140+ knowledge cards, with FSRS spaced repetition across five navigation views. | `Rust` `Tauri` `SvelteKit` |
 | 🗺️ | **[atlas-of-wonders](https://github.com/etherimirr/atlas-of-wonders)** | Interactive travel atlas in one static HTML file: d3-geo map, per-trip diaries, venue markers recovered by running OCR over my own photos. [Live](https://etherimirr.github.io/atlas-of-wonders/). | `d3-geo` `Vision OCR` `Vanilla JS` |
 | 🧙 | **Desk Companions** *(private)* | 3D anime desktop pets for macOS: image to mesh (Hunyuan3D), auto-rigged, animated with three.js inside a transparent always-on-top WKWebView; calendar reminders, file shelf, screen snipping from the right-click menu. | `Swift` `three.js` `Hunyuan3D` |
 | 📮 | **[gmail-digest](https://github.com/etherimirr/gmail-digest)** | Rules-first triage across several inboxes. The optional LLM pass must quote the email for every judgment it makes, no unsourced verdicts. | `Python` `Discord API` |
-| 👤 | **[facial-profile-analyzer](https://github.com/etherimirr/facial-profile-analyzer)** | Ten facial profile angles from a side photo, entirely in the browser, with population norms instead of surgical "ideals". Nothing is uploaded. | `JS` `Canvas` |
 
-More on the [site](https://etherimirr.github.io#projects): a TLA+-verified distributed lock, an LLM-orchestrated quant system, a Pinyin AAC badge for ASD children on a Raspberry Pi.
+More on the [site](https://etherimirr.github.io#projects): a TLA+-verified distributed lock, an LLM-orchestrated quant system, a Pinyin AAC badge for ASD children on a Raspberry Pi, and an in-browser [facial profile analyzer](https://github.com/etherimirr/facial-profile-analyzer).
 
 ---
 
@@ -120,14 +138,3 @@ More on the [site](https://etherimirr.github.io#projects): a TLA+-verified distr
 ### Off the clock
 
 Photography (Canon R6 Mark II, [gallery](https://etherimirr.github.io/photography.html)), bouldering, mapping my trips into the [atlas](https://etherimirr.github.io/atlas-of-wonders/), and drawing pixel worlds.
-
-<div align="center">
-
-<a href="https://github.com/etherimirr">
-  <img height="150" src="https://github-readme-stats.vercel.app/api?username=etherimirr&show_icons=true&hide_border=true&hide_title=true&include_all_commits=true&count_private=true&theme=transparent&icon_color=14B8A6&text_color=8B949E&hide=issues" alt="stats">
-</a>
-<a href="https://github.com/etherimirr">
-  <img height="150" src="https://github-readme-stats.vercel.app/api/top-langs/?username=etherimirr&layout=compact&hide_border=true&hide_title=true&langs_count=6&theme=transparent&text_color=8B949E" alt="languages">
-</a>
-
-</div>
