@@ -83,7 +83,7 @@ Second author. Accepted to **WSDM 2027 Findings**. [Code](https://github.com/lia
 - **On-device inference.** Decoding is a memory problem, so capacity and bandwidth decide what runs locally.
 - **Vision on the edge and in 3D.** Detection under a 5W budget, reconstruction, diffusion.
 
-Paper notes live in [reading-notes](https://github.com/etherimirr/reading-notes), with longer pages on [world models](https://etherimirr.github.io/reading-notes/world-models/) and [running large models locally](https://etherimirr.github.io/reading-notes/local-inference/).
+What I have read: [reading list](https://etherimirr.github.io/reading-notes/).
 
 ---
 
